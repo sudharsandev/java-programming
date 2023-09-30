@@ -1,0 +1,33 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		int tax;
+		System.out.print("Enter salary: ");
+		int sal=input.nextInt();
+		if(sal<=0)
+		{
+		    System.out.print("invalid input");
+		}
+		else if(sal<=150000)
+		{
+		    System.out.print("no tax");
+		}
+		else if(sal>=150001&&sal<300000)
+		{
+		    tax=(sal*10)/100;
+		    System.out.print("tax is: "+tax);
+		}
+		else if(sal>=300001&&sal<500000)
+		{
+		    tax=(sal*20)/100;
+		    System.out.print("tax is: "+tax);
+		}
+		else if(sal>500001)
+		{
+		    tax=(sal*30)/100;
+		    System.out.print("tax is: "+tax);
+		}
+	}
+}

@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+        if (size <= 0) {
+            System.out.println("Array size should be greater than 0.");
+            return;
+        }
+        int[] arr = new int[size];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        System.out.print("Enter the value of N to find the Nth largest number: ");
+        int n = scanner.nextInt();
+        if (n <= 0 || n > size) {
+            System.out.println("Invalid value of N.");
+            return;
+        }
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                if (arr[j] < arr[j + 1]) {
+                    // Swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        int nthLargest = arr[n - 1];
+        System.out.println("The " + n + "th largest number is: " + nthLargest);
+        scanner.close();
+    }
+}
